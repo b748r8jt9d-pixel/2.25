@@ -1,0 +1,25 @@
+port: 7890
+socks-port: 7891
+allow-lan: true
+mode: rule
+log-level: info
+external-controller: 127.0.0.1:9090
+
+proxies:
+  - name: "US_38.30.219.188_NewYorkCity"
+    type: socks5
+    server: zd.fstk.cc
+    port: 5001
+    username: "tqn4kym4vG"
+    password: "HXMELDuC"
+    udp: true
+
+proxy-groups:
+  - name: "Proxy"
+    type: select
+    proxies:
+      - "US_38.30.219.188_NewYorkCity"
+      - "DIRECT"
+
+rules:
+  - MATCH,Proxy
